@@ -23,7 +23,7 @@
     <h1 class="text-5xl font-bold">AI Solutions</h1>
     <p class="text-xl mt-2 max-w-2xl mx-auto">Automatización con inteligencia artificial, diseñada desde la planta para fábricas reales</p>
     <div class="flex flex-wrap justify-center gap-4 mt-6">
-      <button onclick="document.getElementById('demoModal').classList.remove('hidden')" class="bg-white text-pink-600 font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition">
+      <button onclick="abrirDemo()" class="bg-white text-pink-600 font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition">
         📩 Solicita una demo
       </button>
     </div>
@@ -119,12 +119,24 @@
     <div class="mt-2 text-gray-600 text-xs italic">Hecho con IA y visión industrial.</div>
   </footer>
 
+  <!-- FUNCIONES -->
   <script>
     function mostrarVideo() {
       const contenedor = document.getElementById('videoContainer');
       const video = document.getElementById('videoDemo');
       contenedor.classList.remove('hidden');
       video.play();
+    }
+
+    function abrirDemo() {
+      // Mostrar el modal
+      document.getElementById('demoModal').classList.remove('hidden');
+
+      // Evento GA personalizado
+      gtag('event', 'click_demo_button', {
+        event_category: 'Interacción',
+        event_label: 'Botón Solicita Demo'
+      });
     }
   </script>
 
